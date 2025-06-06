@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 0%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-mono-white text-mono-black font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-mono-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-mono-gray-400 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-mono-gray-500;
+  }
+}
+
+@layer utilities {
+  /* Text effects */
+  .text-gradient {
+    @apply bg-gradient-to-r from-mono-black to-mono-gray-600 bg-clip-text text-transparent;
+  }
+
+  /* Minimal hover effects */
+  .hover-lift {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Clean borders */
+  .border-minimal {
+    @apply border border-mono-gray-200;
+  }
+
+  .border-minimal-hover {
+    @apply border border-mono-gray-200 hover:border-mono-gray-400 transition-colors;
+  }
+}
+
+/* Focus styles */
+@layer components {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-mono-black focus:ring-offset-2 focus:ring-offset-mono-white;
+  }
+
+  .btn-primary {
+    @apply bg-mono-black hover:bg-mono-gray-800 text-mono-white border border-mono-black shadow-minimal-md focus-ring transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply border-mono-gray-300 text-mono-black hover:bg-mono-gray-50 hover:border-mono-gray-400 focus-ring transition-all duration-200;
+  }
+
+  .card-minimal {
+    @apply border border-mono-gray-200 rounded-lg bg-mono-white shadow-minimal-sm hover:shadow-minimal-md transition-all duration-200;
+  }
+
+  .section-border {
+    @apply border-t border-mono-gray-200;
+  }
+}
