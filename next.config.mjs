@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+  output: "export", // Enables static HTML export
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "/ostailwindui",
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || "/ostailwindui",
+};
 
-export default nextConfig
+export default nextConfig;
